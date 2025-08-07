@@ -99,10 +99,10 @@
   const sendBtn = document.getElementById('sendBtn');
 
   // ==== ⚠️ Paste your OPENAI API KEY here between the quotes ====
-  const OPENAI_API_KEY = "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";
+  const OPENAI_API_KEY = "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";
 
   let messageHistory = [
-    { role: "system", content: "You are Rad Chat, a helpful and fun AI assistant." }
+    { role: "system", content: "You are Rad Bot, a helpful and fun AI assistant." }
   ];
 
   async function sendMessage() {
@@ -133,14 +133,14 @@
       const data = await response.json();
 
       if (data.error) {
-        appendMessage("Rad Chat", `Error: ${data.error.message}`, "assistant");
+        appendMessage("Rad Bot", `Error: ${data.error.message}`, "assistant");
       } else {
         const reply = data.choices[0].message.content.trim();
         messageHistory.push({ role: "assistant", content: reply });
-        appendMessage("Rad Chat", reply, "assistant");
+        appendMessage("Rad Bot", reply, "assistant");
       }
     } catch (error) {
-      appendMessage("Rad Chat", `Error: ${error.message}`, "assistant");
+      appendMessage("Rad Bot", `Error: ${error.message}`, "assistant");
     }
 
     userInput.disabled = false;
@@ -162,7 +162,6 @@
     if (e.key === "Enter") sendMessage();
   });
 
-  // Auto focus input on page load
   userInput.focus();
 </script>
 
